@@ -4,12 +4,12 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBhsQzs6hQuV1p2SWjLnp06qWHR8NmLhzI",
-  authDomain: "webcar-559e8.firebaseapp.com",
-  projectId: "webcar-559e8",
-  storageBucket: "webcar-559e8.appspot.com",
-  messagingSenderId: "1069740271946",
-  appId: "1:1069740271946:web:cdc9eb4daee54d445df9b3"
+  apiKey: "AIzaSyDVBFA1JPcp59jgao_OoiGJWVH9VMxdD6c",
+  authDomain: "web-car-4bc09.firebaseapp.com",
+  projectId: "web-car-4bc09",
+  storageBucket: "web-car-4bc09.appspot.com",
+  messagingSenderId: "757451692352",
+  appId: "1:757451692352:web:04d7811a832141255d42a5"
 };
 
 const app = initializeApp(firebaseConfig);

@@ -11,6 +11,7 @@ import { v4 as uuidV4 } from "uuid";
 import { deleteObject, getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { db, storage } from "../../../services/firebaseConnection";
 import { addDoc, collection } from "firebase/firestore";
+import toast from "react-hot-toast";
 
 const schema = z.object({
     name: z.string().nonempty("O campo nome é obrigatório"),
@@ -77,13 +78,14 @@ export function New() {
                     }
 
                     setCarImages((images) => [...images, imageItem])
+                    toast.success("Imagem cadastrada com sucesso!");
                 })
             })
     }
 
     function onSubmit(data: FormData) {
         if(carImages.length === 0) {
-            alert("Insira pelo menos uma imagem");
+            toast.error("Envie pelo menos uma imagem!");
             return;
         }
 
@@ -96,7 +98,7 @@ export function New() {
         })
         
         addDoc(collection(db, "cars"), {
-            name: data.name,
+            name: data.name.toUpperCase(),
             model: data.model,
             year: data.year,
             km: data.km,
@@ -112,7 +114,7 @@ export function New() {
         .then(() => {
             reset();
             setCarImages([]);
-            console.log("Cadastrado com sucesso!");
+            toast.success("Carro cadastrado com sucesso!");
         })
         .catch ((error) => {
             console.log(error);
